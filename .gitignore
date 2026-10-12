@@ -1,0 +1,12 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Downloaded price data (the small sample file for tests lives in tests/, not here)
+data/
