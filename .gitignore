@@ -8,5 +8,8 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 
+# Personal build plan (never upload)
+mcframe-build-path.md
+
 # Downloaded price data (the small sample file for tests lives in tests/, not here)
 data/
