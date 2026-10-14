@@ -7,8 +7,8 @@ class GBM:
 
     def __init__(self, mu, sigma):
         # save mu and sigma on self so step() can use them
-        self.mu = mu
-        self.sigma = sigma
+        self.mu = mu # average growth rate per year
+        self.sigma = sigma # volatility
 
     def init_state(self, x0, n_paths):
         x0 = torch.as_tensor(x0, dtype=torch.float64)
