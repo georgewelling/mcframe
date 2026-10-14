@@ -13,3 +13,6 @@ mcframe-build-path.md
 
 # Downloaded price data (the small sample file for tests lives in tests/, not here)
 data/
+
+# Tests kept local; models are checked with mcframe.check_model
+tests/

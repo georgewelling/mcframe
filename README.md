@@ -17,6 +17,24 @@ This is a working framework: any model can be plugged in, as long as it follows 
 
 **No statistical handling has been done yet.** There are no hit probabilities, error bars, confidence intervals or scenario comparisons; these still need to be added.
 
+## Checking a new model
+
+`check_model` checks whether a model will work in the pipeline. Call it on your model before a real run:
+
+```python
+from mcframe import check_model
+
+check_model(my_model, x0)  # x0: a valid starting state for the model
+```
+
+It raises `ModelCheckError` naming the first check that failed, and returns nothing if all pass. It checks that:
+
+- the model follows the `PathModel` format
+- `init_state` returns `(n_paths, dim)`
+- `step` returns `(n_paths, dim)` and does not change its input
+- the same seed gives identical paths through `simulate`
+- a short run produces no NaN or infinite values
+
 ## Pricing a European call
 
 `examples/01_european_option.py` simulates a stock with geometric Brownian motion and prices a one-year call option (S0 = 100, K = 100, r = 5%, σ = 20%, 252 daily steps, 100,000 paths). The result is checked against the exact Black–Scholes price:
@@ -34,9 +52,8 @@ The error shrinks with the square root of the number of paths, as expected:
 ## Running it
 
 ```
-pip install -e ".[dev]"
+pip install -e .
 python examples/01_european_option.py
-pytest
 ```
 
 Claude used for easy updates to the repo.
