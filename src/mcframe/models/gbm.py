@@ -10,7 +10,12 @@ class GBM:
         self.mu = mu
         self.sigma = sigma
 
+    def init_state(self, x0, n_paths):
+        x0 = torch.as_tensor(x0, dtype=torch.float64)
+        x0 = torch.reshape(x0, (self.dim,))
+        return x0.repeat(n_paths, 1)
+    
     def step(self, x, a, z, dt):
         # returns the new prices uses Geometric Brownian Motion and the Random Shock (Wiener process)
-        x0 = x * torch.exp((self.mu - 0.5*self.sigma**2)*dt + self.sigma*math.sqrt(dt)*z)
-        return x0
+        x_next = x * torch.exp((self.mu - 0.5*self.sigma**2)*dt + self.sigma*math.sqrt(dt)*z)
+        return x_next

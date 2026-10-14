@@ -26,10 +26,10 @@ def mc_call_price(n_paths, n_steps, seed=42):
     model = GBM(mu=r, sigma=sigma)
     out = simulate(model, S0, horizon=n_steps, n_paths=n_paths, dt=T/n_steps, seed=seed)
     
-    # Final prices
-    S_T = out[:, -1, 0]
+    # Final price
+    S_T = out.terminal[:, 0] # reference to the Path instance, where it is defined as values[:, -1]
 
-    # Payoff for every path 
+    # Payoff 
     payoffs = torch.clamp(S_T - K, min=0) 
 
     # Discounted back to today
