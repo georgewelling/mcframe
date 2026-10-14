@@ -1,6 +1,6 @@
 # mcframe
 
-A test of Monte Carlo simulations for a future project. Here it's applied to financial markets, but the plan is to use it for medical simulations later on.
+A test of Monte Carlo simulations framework. 
 
 Built on PyTorch. Models never generate their own random numbers: the engine draws them from a seed and passes them in, so the same seed always gives the same paths.
 
