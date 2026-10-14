@@ -20,7 +20,7 @@ class Paths():
     values: torch.Tensor
     dt: float
     seed: int
-    actions: object = None
+    actions: torch.Tensor | None = None
 
     @property
     def n_paths(self):

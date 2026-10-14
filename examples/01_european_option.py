@@ -45,7 +45,7 @@ bs_price = black_scholes_call(S0, K, r, sigma, T)
 diff = abs(mc_price - bs_price)
 print(f"MC price: {mc_price:.4f} ± {se:.4f}")
 print(f"BS price: {bs_price:.4f}")
-print(f"Diff:     {diff:.4f}  ({diff / se:.2f} std errors)")
+print(f"Diff: {diff:.4f}  ({diff / se:.2f} std errors)")
 
 
 errors, std_errors = [], []
