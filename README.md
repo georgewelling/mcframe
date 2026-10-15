@@ -15,7 +15,19 @@ This is a working framework: any model can be plugged in, as long as it follows 
 
 `simulate` runs the model forward and returns a `Paths` object. An optional action plan can be passed in, either shared by every path `(horizon, a_dim)` or one per path `(n_paths, horizon, a_dim)`.
 
-**No statistical handling has been done yet.** There are no hit probabilities, error bars, confidence intervals or scenario comparisons; these still need to be added.
+## Probabilities and scenario comparisons
+
+`mcframe.stats` turns paths into answers. A target is a function taking points `(..., dim)` and returning true/false.
+
+```python
+from mcframe import hit_any, hit_prob, paired_difference
+
+p, se = hit_prob(paths, lambda x: x[..., 0] > 120)   # P(hit target at any step) and its standard error
+hits_a = hit_any(paths_a, target)                    # per-path yes/no, shape (n_paths,)
+diff, lo, hi = paired_difference(hits_a, hits_b)     # a minus b with a 95% range; same seed in both runs
+```
+
+`by_step` / `by_time` limit the horizon.
 
 ## Checking a new model
 

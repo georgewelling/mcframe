@@ -1,6 +1,7 @@
+from typing import Protocol, runtime_checkable
+
 import torch
 
-from typing import Protocol, runtime_checkable
 
 @runtime_checkable
 class PathModel(Protocol):

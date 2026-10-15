@@ -1,6 +1,8 @@
-import math 
+import math
+
 import torch
- 
+
+
 class GBM: 
     dim = 1 # each path tracks one number
     noise_dim = 1 # each step uses one random number

@@ -1,7 +1,8 @@
 import torch
 
-from mcframe.rng import draw_noise, make_generator
 from mcframe.paths import Paths
+from mcframe.rng import draw_noise, make_generator
+
 
 # asterisk forces all parameters after to be keyword
 def simulate(model, x0, horizon, n_paths, dt, *, seed=0, actions=None):

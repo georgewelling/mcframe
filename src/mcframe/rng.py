@@ -1,5 +1,6 @@
 import torch
 
+
 def make_generator(seed=42):
     """Create a private random number generator from a seed."""
     return torch.Generator().manual_seed(seed)

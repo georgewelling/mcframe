@@ -1,10 +1,11 @@
+from dataclasses import dataclass
+
 import torch
 
-from dataclasses import dataclass
 
 @dataclass(frozen=True) # so the fields cannot be changed, protects against 
                         # reassignment not edits 
-class Paths():
+class Paths:
     """The result of one simulation run, with everything needed to reproduce it.
 
     Frozen, so fields can't be changed after a run.
